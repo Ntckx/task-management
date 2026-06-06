@@ -1,6 +1,6 @@
 namespace TaskManagement.Models;
 
-public enum TaskStatus
+public enum TaskItemStatus
 {
     TODO,
     IN_PROGRESS,

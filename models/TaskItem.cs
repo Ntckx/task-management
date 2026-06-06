@@ -8,11 +8,12 @@ public class TaskItem
     public string? Description { get; set; }
 
     public TaskType TaskItemType { get; set; }
-    public TaskStatus TaskItemStatus { get; set; }
-    public TaskPriority TaskItemPriority { get; set; }
-    public int StoryPoint { get; set; }
-    public DateTime DueDate { get; set; }
+    public TaskItemStatus TaskItemStatus { get; set; } = TaskItemStatus.TODO;
+    public TaskPriority TaskItemPriority { get; set; } = TaskPriority.MEDIUM;
+    public int? StoryPoint { get; set; }
+    public DateTime? DueDate { get; set; }
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public DateTime? UpdatedAt { get; set; }
     public Guid? AssigneeId { get; set; }
 
     public User? Assignee { get; set; }
@@ -29,7 +30,7 @@ public class TaskItem
         string title,
         string? description,
         TaskType taskItemType,
-        TaskStatus taskItemStatus,
+        TaskItemStatus taskItemStatus,
         TaskPriority taskItemPriority,
         int storyPoint,
         DateTime dueDate,
