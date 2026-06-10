@@ -30,18 +30,14 @@ public class TaskItem
         string title,
         string? description,
         TaskItemType taskItemType,
-        TaskItemStatus taskItemStatus,
-        TaskPriority taskItemPriority,
-        int storyPoint,
-        DateTime dueDate,
+        int? storyPoint,
+        DateTime? dueDate,
         Guid? assigneeId
     )
     {
         Title = title;
         Description = description;
         TaskItemType = taskItemType;
-        TaskItemStatus = taskItemStatus;
-        TaskItemPriority = taskItemPriority;
         StoryPoint = storyPoint;
         DueDate = dueDate;
         AssigneeId = assigneeId;
