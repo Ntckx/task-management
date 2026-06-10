@@ -2,12 +2,16 @@
 
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.data;
+using TaskManagement.Factory;
 
 // Registers Service, Config, Logging, Controller, Database
 var builder = WebApplication.CreateBuilder(args);
 
 // Use controller based api endpoints
 builder.Services.AddControllers();
+builder.Services.AddScoped<BugFactory>();
+builder.Services.AddScoped<FeatureFactory>();
+builder.Services.AddScoped<StoryFactory>();
 
 // Registers AppDbContext to Dependency Injection Container
 // AppDbContext can be injected to Controllers, Services

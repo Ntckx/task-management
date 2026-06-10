@@ -1,6 +1,6 @@
 namespace TaskManagement.Models;
 
-public enum TaskType
+public enum TaskItemType
 {
     BUG,
     FEATURE,

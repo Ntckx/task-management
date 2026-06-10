@@ -7,7 +7,7 @@ public class TaskItem
 
     public string? Description { get; set; }
 
-    public TaskType TaskItemType { get; set; }
+    public TaskItemType TaskItemType { get; set; }
     public TaskItemStatus TaskItemStatus { get; set; } = TaskItemStatus.TODO;
     public TaskPriority TaskItemPriority { get; set; } = TaskPriority.MEDIUM;
     public int? StoryPoint { get; set; }
@@ -29,19 +29,15 @@ public class TaskItem
     public TaskItem(
         string title,
         string? description,
-        TaskType taskItemType,
-        TaskItemStatus taskItemStatus,
-        TaskPriority taskItemPriority,
-        int storyPoint,
-        DateTime dueDate,
+        TaskItemType taskItemType,
+        int? storyPoint,
+        DateTime? dueDate,
         Guid? assigneeId
     )
     {
         Title = title;
         Description = description;
         TaskItemType = taskItemType;
-        TaskItemStatus = taskItemStatus;
-        TaskItemPriority = taskItemPriority;
         StoryPoint = storyPoint;
         DueDate = dueDate;
         AssigneeId = assigneeId;

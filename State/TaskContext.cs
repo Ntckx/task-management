@@ -1,4 +1,5 @@
 using TaskManagement.Models;
+using TaskManagement.Exceptions;
 
 namespace TaskManagement.State;
 
@@ -24,7 +25,7 @@ public class TaskContext
         if (_currentState is IStartable s)
             s.Start(this);
         else
-            throw new InvalidOperationException(
+            throw new InvalidStateTransitionException(
                 $"Cannot start from {Task.TaskItemStatus}");
     }
 
@@ -33,7 +34,7 @@ public class TaskContext
         if (_currentState is ISubmittable s)
             s.Submit(this);
         else
-            throw new InvalidOperationException(
+            throw new InvalidStateTransitionException(
                 $"Cannot submit from {Task.TaskItemStatus}");
     }
 
@@ -42,7 +43,7 @@ public class TaskContext
         if (_currentState is IApprovable s)
             s.Approve(this);
         else
-            throw new InvalidOperationException(
+            throw new InvalidStateTransitionException(
                 $"Cannot approve from {Task.TaskItemStatus}");
     }
 
@@ -51,7 +52,7 @@ public class TaskContext
         if (_currentState is ICancellable s)
             s.Cancel(this);
         else
-            throw new InvalidOperationException(
+            throw new InvalidStateTransitionException(
                 $"Cannot cancel from {Task.TaskItemStatus}");
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\task-management\\TaskManagement\\TaskManagement.csproj": {}
+    "D:\\task-management\\TaskManagement\\TaskManagement.csproj": {}
   },
   "projects": {
-    "d:\\task-management\\TaskManagement\\TaskManagement.csproj": {
+    "D:\\task-management\\TaskManagement\\TaskManagement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\task-management\\TaskManagement\\TaskManagement.csproj",
+        "projectUniqueName": "D:\\task-management\\TaskManagement\\TaskManagement.csproj",
         "projectName": "TaskManagement",
-        "projectPath": "d:\\task-management\\TaskManagement\\TaskManagement.csproj",
+        "projectPath": "D:\\task-management\\TaskManagement\\TaskManagement.csproj",
         "packagesPath": "C:\\Users\\ntck\\.nuget\\packages\\",
-        "outputPath": "d:\\task-management\\TaskManagement\\obj\\",
+        "outputPath": "D:\\task-management\\TaskManagement\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ntck\\AppData\\Roaming\\NuGet\\NuGet.Config"
