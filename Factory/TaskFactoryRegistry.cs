@@ -3,7 +3,7 @@ using TaskManagement.Models;
 
 namespace TaskManagement.Factory;
 
-public class TaskFactoryRegistry
+public class TaskFactoryRegistry : ITaskFactoryRegistry
 {
 
     // Use Map to store TaskItemType with Their CreateTask Interface
