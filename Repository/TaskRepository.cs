@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.data;
+using TaskManagement.DTOs;
 using TaskManagement.Exceptions;
 using TaskManagement.Models;
+using TaskManagement.State;
 
 namespace TaskManagement.Repository;
 
@@ -39,13 +41,13 @@ public class TaskRepository : ITaskRepository
 
     public async Task<TaskItem> UpdateAsync(TaskItem taskItem)
     {
-        await _context.AddAsync(taskItem);
+        _context.Update(taskItem);
         await _context.SaveChangesAsync();
 
         return taskItem;
     }
 
-    public async void DeleteAsync(Guid id)
+    public async Task DeleteByIdAsync(Guid id)
     {
         var getTaskById = await GetByIdAsync(id);
 
@@ -53,4 +55,5 @@ public class TaskRepository : ITaskRepository
 
         await _context.SaveChangesAsync();
     }
+
 }

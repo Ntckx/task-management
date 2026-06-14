@@ -8,5 +8,5 @@ public interface ITaskRepository
     Task<List<TaskItem>> GetAllAsync();
     Task<TaskItem> CreateAsync(TaskItem taskItem);
     Task<TaskItem> UpdateAsync(TaskItem taskItem);
-    void DeleteAsync(Guid id);
+    Task DeleteByIdAsync(Guid id);
 }
