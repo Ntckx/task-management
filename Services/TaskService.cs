@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using TaskManagement.DTOs;
 using TaskManagement.Factory;
 using TaskManagement.Models;
@@ -80,6 +79,39 @@ public class TaskService : ITaskService
         var context = new TaskContext(task, _restorer, _observer);
 
         context.Start();
+
+        var updatedTask = await _taskRepository.UpdateAsync(task);
+        return MapToResponseDto(updatedTask);
+    }
+
+    public async Task<TaskResponseDto> SubmitTaskByIdAsync(Guid id)
+    {
+        var task = await _taskRepository.GetByIdAsync(id);
+        var context = new TaskContext(task, _restorer, _observer);
+
+        context.Submit();
+
+        var updatedTask = await _taskRepository.UpdateAsync(task);
+        return MapToResponseDto(updatedTask);
+    }
+
+    public async Task<TaskResponseDto> ApproveTaskByIdAsync(Guid id)
+    {
+        var task = await _taskRepository.GetByIdAsync(id);
+        var context = new TaskContext(task, _restorer, _observer);
+
+        context.Approve();
+
+        var updatedTask = await _taskRepository.UpdateAsync(task);
+        return MapToResponseDto(updatedTask);
+    }
+
+    public async Task<TaskResponseDto> CancelTaskByIdAsync(Guid id)
+    {
+        var task = await _taskRepository.GetByIdAsync(id);
+        var context = new TaskContext(task, _restorer, _observer);
+
+        context.Cancel();
 
         var updatedTask = await _taskRepository.UpdateAsync(task);
         return MapToResponseDto(updatedTask);
