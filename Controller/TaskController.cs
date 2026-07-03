@@ -29,7 +29,7 @@ public class TaskController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("/{id}")]
     public async Task<ActionResult<TaskResponseDto>> GetTaskById(Guid id)
     {
         var result = await _taskService.GetTaskByIdAsync(id);
