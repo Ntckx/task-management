@@ -2,6 +2,7 @@
 
 using Microsoft.EntityFrameworkCore;
 using TaskManagement.data;
+using TaskManagement.Exceptions;
 using TaskManagement.Factory;
 
 // Registers Service, Config, Logging, Controller, Database
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Use controller based api endpoints
 builder.Services.AddControllers();
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
 builder.Services.AddProblemDetails();
 builder.Services.AddScoped<BugFactory>();
 builder.Services.AddScoped<FeatureFactory>();
