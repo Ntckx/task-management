@@ -19,7 +19,7 @@ public class TaskController : ControllerBase
     public async Task<ActionResult<TaskResponseDto>> CreateTask(CreateTaskDto dto)
     {
         var result = await _taskService.CreateTaskAsync(dto);
-        return Ok(result);
+        return CreatedAtAction(nameof(GetTaskById), new { id = result.Id }, result);
     }
 
     [HttpGet]
@@ -36,7 +36,7 @@ public class TaskController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet("/{id}/task-priority")]
+    [HttpGet("{id}/task-priority")]
     public async Task<ActionResult<TaskPriority>> GetTaskPriorityById(Guid id)
     {
         var result = await _taskService.GetTaskPriorityByIdAsync(id);
@@ -44,35 +44,35 @@ public class TaskController : ControllerBase
     }
 
 
-    [HttpDelete("/{id}")]
+    [HttpDelete("{id}")]
     public async Task<ActionResult> DeleteTaskById(Guid id)
     {
         await _taskService.DeleteByIdAsync(id);
         return NoContent();
     }
 
-    [HttpPut("/{id}/start-task")]
+    [HttpPut("{id}/start-task")]
     public async Task<ActionResult<TaskResponseDto>> StartTaskById(Guid id)
     {
         var result = await _taskService.StartTaskByIdAsync(id);
         return Ok(result);
     }
 
-    [HttpPut("/{id}/submit-task")]
+    [HttpPut("{id}/submit-task")]
     public async Task<ActionResult<TaskResponseDto>> SubmitTaskById(Guid id)
     {
         var result = await _taskService.SubmitTaskByIdAsync(id);
         return Ok(result);
     }
 
-    [HttpPut("/{id}/approve-task")]
+    [HttpPut("{id}/approve-task")]
     public async Task<ActionResult<TaskResponseDto>> ApproveTaskById(Guid id)
     {
         var result = await _taskService.ApproveTaskByIdAsync(id);
         return Ok(result);
     }
 
-    [HttpPut("/{id}/cancel-task")]
+    [HttpPut("{id}/cancel-task")]
     public async Task<ActionResult<TaskResponseDto>> CancelTaskById(Guid id)
     {
         var result = await _taskService.CancelTaskByIdAsync(id);
