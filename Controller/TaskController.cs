@@ -19,7 +19,7 @@ public class TaskController : ControllerBase
     public async Task<ActionResult<TaskResponseDto>> CreateTask(CreateTaskDto dto)
     {
         var result = await _taskService.CreateTaskAsync(dto);
-        return Ok(result);
+        return CreatedAtAction(nameof(GetTaskById), new { id = result.Id }, result);
     }
 
     [HttpGet]
@@ -29,7 +29,7 @@ public class TaskController : ControllerBase
         return Ok(result);
     }
 
-    [HttpGet("/{id}")]
+    [HttpGet("{id}")]
     public async Task<ActionResult<TaskResponseDto>> GetTaskById(Guid id)
     {
         var result = await _taskService.GetTaskByIdAsync(id);
