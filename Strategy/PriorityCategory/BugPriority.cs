@@ -14,7 +14,7 @@ public class BugPriority : IPriority
         {
             return TaskPriority.LOW;
         }
-        else if (storyScore < 7.5)
+        else if (storyScore < 7.5 && storyScore > 5)
         {
             return TaskPriority.MEDIUM;
         }
