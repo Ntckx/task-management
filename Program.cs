@@ -9,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Use controller based api endpoints
 builder.Services.AddControllers();
+builder.Services.AddProblemDetails();
 builder.Services.AddScoped<BugFactory>();
 builder.Services.AddScoped<FeatureFactory>();
 builder.Services.AddScoped<StoryFactory>();
@@ -22,6 +23,8 @@ options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")
 
 var app = builder.Build();
 
+app.UseExceptionHandler();
+app.UseStatusCodePages();
 app.UseHttpsRedirection();
 app.MapControllers();
 
