@@ -1,7 +1,13 @@
 namespace TaskManagement.State;
 
-public class ReviewState : IRevisionNeeded, ICancellable
+public class ReviewState : IRevisionNeeded, ICancellable, IApprovable
 {
+    public void Approve(TaskContext context)
+    {
+        context.Task.TaskItemStatus = Models.TaskItemStatus.DONE;
+        context.Task.UpdatedAt = DateTime.UtcNow;
+        context.ChangeState(new DoneState());
+    }
     public void Revise(TaskContext context)
     {
         context.Task.TaskItemStatus = Models.TaskItemStatus.TODO;
